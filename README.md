@@ -25,7 +25,8 @@ Install Visual Studio Code.
 1. Open `appSettings.json`.
 1. In appSettings, add project root path to `"ProjectRootPath"`. Template: `C:\\Users\\<user>\\Documents\\<folder>\\`.
 1. Remain in appSettings, add Sql Server Connection to `"SqlServerConnection"`. Template: `Server=<servername>;Database=shortclipsdb;Trusted_Connection=True;TrustServerCertificate=True;`.
-1. Build solution.
+1. Restore Nuget Packages.
+2. Build solution.
 1. Run migrations by typing `update-database` in Package Manager Console.
 1. Run SQL scripts to populate database. Scripts can be found at `\ShortClips\ShortClipsWeb\utilities\sql` folder.
 1. Run API project.
