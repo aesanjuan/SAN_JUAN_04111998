@@ -35,3 +35,4 @@ Install Visual Studio Code.
 1. Open Visual Studio Code.
 1. Open a new terminal and type `npm install`.
 1. In Explorer, open `src/environments/environment.development`. Replace the API URL if server has been changed.
+2. Go back to terminal and type `ng serve` to run application.
