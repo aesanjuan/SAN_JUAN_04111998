@@ -1,0 +1,18 @@
+<div class="app-video-streaming-container m-5">
+
+    <a href="/home">Go Home</a>
+
+    <!-- Video Streaming -->
+    <div *ngIf="isLoaded">
+        <div class="mb-3">
+            <video width="640" height="480" controls #videoPlayer>
+                <source type="video/mp4">
+                Your browser does not support video tag.
+            </video>
+            <h1>{{title | titlecase }}</h1>
+            <p class="mb-3">{{description}}</p>
+            <p class="video-upload-timestamp">Uploaded on {{uploadDateTime | date: 'medium'}}</p>
+        </div>
+    </div>
+
+</div>

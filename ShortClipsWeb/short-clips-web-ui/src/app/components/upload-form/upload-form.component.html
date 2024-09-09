@@ -1,0 +1,74 @@
+<!-- Upload form -->
+<div class="app-upload-form-container m-5">
+    <a href="/home">Go Home</a><br><br>
+    <h1>Upload a Video</h1>
+
+    <div class="mt-3">
+        <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+    
+            <!-- Title -->
+            <div class="form-group p-2">
+                <label for="title">Name</label>
+                <input 
+                    formControlName="title"
+                    id="title" 
+                    type="text"
+                    placeholder="Title"
+                    class="form-control" />
+                <div *ngIf="uploadForm.controls['title'].errors?.['required']" class="text-danger form-warning">
+                    Title is required.
+                </div>
+                <div *ngIf="uploadForm.controls['title'].errors?.['maxlength']" class="text-danger form-warning">
+                    Title can only be up to 160 characters long.
+                </div>
+            </div>
+            
+            <!-- Description -->
+            <div class="form-group p-2">
+                <label for="description">Name</label>
+                <textarea 
+                    formControlName="description"
+                    id="description"
+                    placeholder="Description"
+                    class="form-control"
+                    required>
+                </textarea>
+                <div *ngIf="uploadForm.controls['description'].errors?.['required']" class="text-danger form-warning">
+                    Description is required.
+                </div>
+            </div>
+        
+            <!-- Category -->
+            <div class="form-group p-2">
+                <select formControlName="category" id="category" class="form-select">
+                    <option selected>Select a category</option>
+                    <option *ngFor="let option of categoryOptions" [ngValue]="option.id">{{ option.name }}</option>
+                </select>
+                <div *ngIf="uploadForm.controls['category'].errors?.['required']" class="text-danger form-warning">
+                    Category is required.
+                </div>
+            </div>    
+        
+            <!-- File -->
+            <div class="form-group p-2">
+                <label for="file">File</label>
+                <input 
+                    formControlName="file"
+                    id="file" 
+                    type="file" 
+                    class="form-control"
+                    (change)="onFileChange($event)" />
+                <div *ngIf="uploadForm.controls['file'].errors?.['required']" class="text-danger form-warning">
+                    File is required.
+                </div>
+            </div>    
+            <br>
+        
+            <!-- Submit -->
+            <div class="p-2">
+                <button class="btn btn-primary" [disabled]="uploadForm.invalid" type="submit">Upload</button>
+            </div>        
+        </form>
+    </div>
+    
+</div>

@@ -1,0 +1,40 @@
+<div class="app-home-container m-5">
+    
+    <div class="row pb-3">
+        <div class="col">
+            <h1>Welcome!</h1>
+        </div>
+        <div class="col">
+            <!-- redirects to upload form -->
+            <button type="button" class="float-end btn btn-primary" routerLink="/upload">Upload a Video</button>
+        </div>
+    </div>
+    
+    <div class="video-list-container">
+        <div *ngFor="let video of videoList">
+            <div class="mb-3">
+                        
+                <!-- thumbnail image -->
+                <div class="card flex-row">
+                    <img 
+                        #imageDisplay 
+                        src="{{video.imgSourceLink}}" 
+                        type="image/png" 
+                        class="card-img-left rounded video-thumbnail img-thumbnail-zoom" 
+                        alt="video thumbnail" 
+                        data-toggle="tooltip" 
+                        title="{{ video.title | titlecase }}">
+                    <div class="card-body">
+                        <h4 class="card-title h5 h4-sm">
+                            <a href="/stream/{{video.id}}">{{ video.title | titlecase }}</a>
+                        </h4>
+                        <p class="card-text">{{ video.description }}</p>
+                        <p class="card-text text-muted" style="font-size: 12px;">{{ video.uploadDateTime | date: 'medium' }}</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> 
+
+</div>
